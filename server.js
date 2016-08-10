@@ -27,9 +27,7 @@ app.use(morgan('dev'));
 app.get('/', function(req, res){
     res.send('IReach API is at http://localhost:' + port + '/api');
 });
-
-
-
+ 
 
 // API Setup Create a Test User:
 app.get('/setup', function(req, res){
@@ -52,7 +50,25 @@ app.get('/setup', function(req, res){
 // API ROUTES:
 var apiRoutes = express.Router();
 
-// TODO: route to authenticate a user (POST http://localhost:8080/api/authenticate)
+// Signup
+// POST http://localhost/signup 
+apiRoutes.post('/signup', function(req, res){
+    var newUser = new User({
+        name : req.body.name,
+        password: req.body.password,
+        admin : false
+    });
+    
+    newUser.save(function(err){
+        if(err) throw err;
+        
+        console.log('User created successfully!');
+        res.json({success: true, message: 'User successfully created.'});
+    })
+});
+
+// Authenticate
+// POST http://localhost:8080/api/authenticate
 apiRoutes.post('/authenticate', function(req, res){
     
     // Find the user
@@ -87,23 +103,50 @@ apiRoutes.post('/authenticate', function(req, res){
 });
 
 
-// TODO: route middleware to verify a token
-
-
-// Return All USERS: GET http://localhost:8080/api/users
-apiRoutes.get('/users', function(req, res){
-    User.find({}, function(err, users){
-        res.json(users);
-    });
+// Middleware
+// To verify a token : All routes bellow require a token
+apiRoutes.use(function(req, res, next){
+   
+    // Check header or url parameters for token
+    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+    
+    // decoded the token if it exists
+    if(token){
+        
+        // check the secret and check expiration
+        jwt.verify(token, app.get('superSecret'), function(err, decoded){
+            if(err){
+                return res.json({success: false, message: 'Failed to authenticate token.'});
+            } else {
+                
+                // token is there and its not expired
+                req.decoded = decoded;
+                next();
+            }
+        });
+    } else {
+        
+        // There is no token
+        return res.status(403).send({ success: false, message: 'No token provided'});
+    }
 });
 
-
+// Random Message
+// GET http://localhost:8080/api 
+// Route to show a random message 
 apiRoutes.get('/', function(req, res){
     res.json({message: "Welcome to IReachAPI CS421 Senior Design Project"});
 });
 
-// route to show a random message 
 
+// Return List of users
+// GET http://localhost:8080/api/users
+apiRoutes.get('/users', function(req, res){
+    User.find({}, function(err, users){
+        res.json(users);
+    });
+}); 
+ 
 
 // apply the routes to our application with the prefix /api
 app.use('/api', apiRoutes);
