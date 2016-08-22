@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IReach.Views.FoodItemPage"
+             Padding="20">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="StartAndExpand">
+      <Label Text="Name"/>
+      <Entry x:Name= "nameEntry" Text="{Binding Name}" Placeholder="Food Name"/>
+      
+     <Grid>
+       <Grid.RowDefinitions>
+         <RowDefinition Height="Auto"/>
+         <RowDefinition Height="*"/>
+         <RowDefinition Height="Auto"/> 
+       </Grid.RowDefinitions>
+       <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="Auto"/>
+         <ColumnDefinition Width="*"/>
+         <ColumnDefinition Width="100"/> 
+       </Grid.ColumnDefinitions>
+     </Grid>
+        
+        <Label Text="Calories: "/>
+        <Slider x:Name="calories" Minimum="0" Maximum="1000" Value="{Binding Calories}"
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label BindingContext="{x:Reference calories}" Text="{Binding Value}" Grid.Row="0" Grid.Column="2"/>
+
+        <Label Text="Servings: "/>
+        <Stepper x:Name="servings" Minimum="0" Maximum="10" Increment="1" Value="{Binding Servings}"
+                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label BindingContext="{x:Reference servings}" Text="{Binding Value}" Grid.Row="1" Grid.Column="2"></Label>  
+   
+      <Button Text="Save" Clicked="OnSaveClicked"/>
+      <Button Text="Delete" Clicked="OnDeleteClicked"></Button>
+      <Button Text="Speak" Clicked="OnSpeakClicked"></Button>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

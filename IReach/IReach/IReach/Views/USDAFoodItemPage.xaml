@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IReach.Views.USDAFoodItemPage">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="StartAndExpand">
+      <Label Text="Name"/>
+      <Entry x:Name= "nameEntry" Text="{Binding short_desc}" Placeholder="Food Name"/>
+     
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Calories: " Grid.Row="0" Grid.Column="0"/>
+        <Slider x:Name="calories" Minimum="0" Maximum="1000"
+               Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label BindingContext="{x:Reference calories}" Grid.Row="0" Grid.Column="2"/>
+      </Grid> 
+      
+    </StackLayout>
+  </ContentPage.Content>  
+</ContentPage>

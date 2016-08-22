@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IReach.Views.HomePage">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+      <Label Text="Welcome to the app!" HorizontalOptions="StartAndExpand" />
+
+      <Label x:Name="xLabel" Text="x = "/>
+      <Label x:Name="yLabel" Text="y = "/>
+      <Label x:Name="zLabel" Text="z = "/>
+      <Button Text= " Start " VerticalOptions="Center" HorizontalOptions="Center" Clicked="OnStartActivated"/>
+      <Button Text=" Stop " VerticalOptions="Center" HorizontalOptions="Center" Clicked="OnStopActivated"/>
+
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
