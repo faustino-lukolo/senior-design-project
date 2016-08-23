@@ -1,30 +1,100 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IReach.Views.USDAFoodItemPage">
-  <ContentPage.Content>
+             x:Class="IReach.Views.USDAFoodItemPage"
+             Padding="10">
+  <ContentPage.Content >
     <StackLayout VerticalOptions="StartAndExpand">
       <Label Text="Name"/>
       <Entry x:Name= "nameEntry" Text="{Binding short_desc}" Placeholder="Food Name"/>
-     
-      <Grid>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto"/>
-          <RowDefinition Height="*"/>
-          <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto"/>
-          <ColumnDefinition Width="*"/>
-          <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
+      <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" Padding="10,0,0,0">
+          <Label Text="Nutrition Facts" FontSize="Large"></Label>
+          <Label Text="Serving Size "></Label>
+          <BoxView WidthRequest="1" HeightRequest="10" Color="Gray"></BoxView>
+          <Label Text="Amount Per Serving" FontAttributes="Bold"></Label>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Calories" />
+            <Label x:Name="calories_label" Text="55" ></Label>
+            <Label Text="Calories from Fat " HorizontalOptions="EndAndExpand"></Label>
+            <Label x:Name="calories_fromfat" Text="55" ></Label>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="5" Color="Gray"></BoxView>
+          <Label Text="% Daily Value*" HorizontalOptions="EndAndExpand" FontSize="Medium" FontAttributes="Bold"/>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"></BoxView>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Total Fat" FontSize="Large" FontAttributes="Bold"/>
+            <Label Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+            <Label x:Name="totalfat_label" Text="0%" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"></BoxView>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20,0,0,0">
+            <Label Text="Saturated Fat" FontSize="Small"/>
+            <Label x:Name="saturatedfat_label" Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+            <Label x:Name="percent_saturatedfat_label" Text="0%" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"></BoxView>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20,0,0,0">
+            <Label Text="Trans Fat" FontSize="Small"/>
+            <Label x:Name="transfat_label" Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"></BoxView>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Cholesterol" FontSize="Large" FontAttributes="Bold"/>
+            <Label x:Name="cholesterol_label" Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+            <Label x:Name="percent_cholesterol_label" Text="14%" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Sodium" FontSize="Large" FontAttributes="Bold"/>
+            <Label x:Name="sodium_label"  Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+            <Label x:Name="percent_sodium_label" Text="0%" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Total Carbohydrate" FontSize="Large" FontAttributes="Bold"/>
+            <Label x:Name="totalcarbs_label" Text="0g" FontSize="Medium" VerticalOptions="Center" />
+            <Label x:Name="percent_totalcarbs_label" Text="0%" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20,0,0,0">
+            <Label Text="Dietary Fiber" FontSize="Small"/>
+            <Label x:Name="dietaryfiber_label" Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+            <Label x:Name="percent_dietaryfiber_label" Text="0%" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="20,0,0,0">
+            <Label Text="Sugars" FontSize="Small"/>
+            <Label x:Name="sugars_label" Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Protein" FontSize="Large" FontAttributes="Bold"/>
+            <Label x:Name="protein_label" Text="0g" FontSize="Medium" VerticalOptions="Center"/>
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="10" Color="Gray"/>
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Vitamin A" />
+            <Label x:Name="percent_vitamin_a_label" Text="55%" HorizontalOptions="Start" ></Label>
+            <Label Text="*"  WidthRequest="50" HorizontalTextAlignment="Center"></Label>
+            <Label Text="Vitamin C "/>
+            <Label x:Name="percent_vitamin_c_label" Text="55%" />
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"/>
 
-        <Label Text="Calories: " Grid.Row="0" Grid.Column="0"/>
-        <Slider x:Name="calories" Minimum="0" Maximum="1000"
-               Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label BindingContext="{x:Reference calories}" Grid.Row="0" Grid.Column="2"/>
-      </Grid> 
-      
+          <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="Calcium" />
+            <Label x:Name="percent_Calcium_a_label" Text="55%" HorizontalOptions="Start" ></Label>
+            <Label Text="*"  WidthRequest="70" HorizontalTextAlignment="Center"></Label>
+            <Label Text="Iron"/>
+            <Label x:Name="percent_iron_c_label" Text="55%" />
+          </StackLayout>
+          <BoxView WidthRequest="1" HeightRequest="1" Color="Gray"/>
+          <Label Text="* Percent Daily Values are based on a 2,000 calorie diet" FontSize="Medium"/>
+        </StackLayout>
+
+      </ScrollView>
     </StackLayout>
-  </ContentPage.Content>  
+
+  </ContentPage.Content>
 </ContentPage>
