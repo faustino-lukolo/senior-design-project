@@ -37,7 +37,10 @@ namespace IReach.Views
 				{
 					case MenuType.Home:
 						Pages.Add ( id, new IReachNavigationPage ( new HomePage ( ) ) );
-						break;  
+						break;
+                    case MenuType.History:
+                        Pages.Add ( id, new IReachNavigationPage ( new HistoryPage ( ) ) );
+                        break;
                     case MenuType.Diet:
                         Pages.Add(id, new IReachNavigationPage(new FoodListPage()));
 				        break;

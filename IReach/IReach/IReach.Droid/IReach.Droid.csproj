@@ -143,6 +143,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HistoryPageRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,6 +160,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\raw\FoodSQLite.db3" />
     <AndroidResource Include="Resources\raw\usda_food.sqlite3" />
+    <AndroidResource Include="Resources\layout\HistoryPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -212,6 +216,10 @@
     <AndroidResource Include="Resources\drawable\home.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\JarBinding\JarBinding.csproj">
+      <Project>{3e60c2dc-2ca5-44f4-8bfc-5d430613ba87}</Project>
+      <Name>JarBinding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IReach\IReach.csproj">
       <Project>{b31350d9-18c2-4a28-8214-8e37da64b711}</Project>
       <Name>IReach</Name>

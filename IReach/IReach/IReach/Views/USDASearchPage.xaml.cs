@@ -30,10 +30,19 @@ namespace IReach.Views
             set { _foodGroupName = value; }
         }
 
-        private void SearchButtonClicked(object sender, EventArgs e)
+        async void SearchButtonClicked(object sender, EventArgs e)
         {
-            var usdaFood = new USDAFoodGroupItemsPage( SearchFoodGroupID ); 
-            Navigation.PushAsync(usdaFood);
+
+            SearchText = searchEntry.Text;
+
+            Debug.WriteLine ( "SearchText = " + SearchText );
+
+            if ( string.IsNullOrWhiteSpace ( SearchText ) )
+                await DisplayAlert ( "Search Text", "Search Text Cannot Be Empty", "OK" );
+            else
+            {
+                foodGroupListView.ItemsSource = App.NutritionDb.SearchFood ( SearchText );
+            }
         } 
         
 

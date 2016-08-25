@@ -32,6 +32,7 @@ namespace IReach.Views
 			ListViewMenu.ItemsSource = menuItems = new List<HomeMenuItem>
 			{
                 new HomeMenuItem {Title = "Home", MenuType = MenuType.Home, Icon ="home.png" },
+                new HomeMenuItem {Title = "History", MenuType = MenuType.History, Icon = "history.png" },
                 new HomeMenuItem {Title = "Diet", MenuType = MenuType.Diet, Icon = "diet.png" },
                 new HomeMenuItem {Title = "Search USDA", MenuType = MenuType.Usda, Icon = "Search.png"},
                 new HomeMenuItem {Title = "About", MenuType = MenuType.About, Icon ="about.png" } 

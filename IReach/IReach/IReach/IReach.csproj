@@ -62,6 +62,7 @@
     <Compile Include="Views\FoodListPage.xaml.cs">
       <DependentUpon>FoodListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\HistoryPage.cs" />
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>

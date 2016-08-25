@@ -9,6 +9,7 @@ namespace IReach
 	public enum MenuType
 	{
 		Home,
+        History,
         Diet,
         Usda,
         About
